@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,11 +44,47 @@ public class GestionarClientes {
             stmt.close();
             c.close();
         } catch (SQLException ex) {
-            ex.getErrorCode();
+            ex.printStackTrace();
             System.err.println("error en la consulta");
         }
     }
     
-    
+    public void eliminar(){
+        try {
+            Statement stmt = c.createStatement();
+            stmt = c.createStatement();
+            String sql = ""; //aqui va el sql 
+            stmt.executeUpdate(sql);
+             c.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(){
+        try {          
+            Statement stmt = c.createStatement();
+            stmt = c.createStatement();
+            String sql = "" ; //va el codigo de 
+            stmt.executeUpdate(sql);
+             c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       
+    }
+    public void insertar(){
+          try {
+            Statement stmt = c.createStatement();
+            stmt = c.createStatement();
+            String sql = "INSERT INTO public.cliente"
+                    + "(cli_cedula, cli_nombre, cli_apellido, cli_edad)"
+                    + "VALUES ('0104557612', 'Alfredo', 'Llanes', 100);";//insertar datos codigo 
+            stmt.executeUpdate(sql);
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

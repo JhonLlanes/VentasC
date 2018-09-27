@@ -19,6 +19,7 @@ public class VentasCapas11 {
     public static void main(String[] args) {
         // TODO code application logic here
         GestionarClientes g  = new GestionarClientes();
+        //g.insertar();
         g.mostrarUsuarios();
         
     }
