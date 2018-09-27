@@ -5,35 +5,40 @@
  */
 package Logica;
 
+import Datos.Conexion;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  *
  * @author jhonllanes
  */
 public class GestionarClientes {
-    
-    
-      public String idusu(String usu, String contra) {
-        String ad = usu;
-        String co = contra;
-//         System.err.println(usu);
 
-        String idusuario = "";
+    Connection c = Conexion.Conexion();
+
+    public void mostrarUsuarios() {
         try {
             String sql = "SELECT \n"
-                    + "  usuario.usu_cod as usu_codi, \n"
-                    + "  usuario.usu_nom as usu_nomb, \n"
-                    + "  usuario.usu_contraseña as usu_con\n"
+                    + "  cliente.cli_id as id, \n"
+                    + "  cliente.cli_cedula as cedula, \n"
+                    + "  cliente.cli_nombre as nombre, \n"
+                    + "  cliente.cli_apellido as apellido, \n"
+                    + "  cliente.cli_edad as edad\n"
                     + "FROM \n"
-                    + "  public.usuario\n"
-                    + "where\n"
-                    + "usuario.usu_nom = '" + ad + "'and\n"
-                    + "usuario.usu_contraseña='" + contra + "';";
-            Connection c = Conexion.Conexion();
+                    + "  public.cliente;";
             Statement stmt = c.createStatement();
             stmt = c.createStatement();
             ResultSet rs1 = stmt.executeQuery(sql);
             while (rs1.next()) {
-                idusuario = rs1.getString("usu_codi");
+               String id = rs1.getString("id");
+               String cedula = rs1.getString("cedula");
+               String nombre = rs1.getString("nombre");
+               String apellido = rs1.getString("id");
+               String edad = rs1.getString("edad");
+               System.out.println(id + "  " + cedula+ "  " + nombre+ "  " + apellido+ "  " + edad);
             }
             stmt.close();
             c.close();
@@ -41,7 +46,8 @@ public class GestionarClientes {
             ex.getErrorCode();
             System.err.println("error en la consulta");
         }
-        return idusuario;
     }
     
+    
+
 }

@@ -5,6 +5,8 @@
  */
 package ventascapas1.pkg1;
 
+import Logica.GestionarClientes;
+
 /**
  *
  * @author jhonllanes
@@ -16,6 +18,9 @@ public class VentasCapas11 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        GestionarClientes g  = new GestionarClientes();
+        g.mostrarUsuarios();
+        
     }
     
 }
