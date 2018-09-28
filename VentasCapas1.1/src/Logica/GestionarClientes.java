@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import Datos.Clientes;
 import Datos.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ import javax.swing.JOptionPane;
 public class GestionarClientes {
 
     Connection c = Conexion.Conexion();
+    Datos.Clientes cl = new Datos.Clientes();
 
     public void mostrarUsuarios() {
         try {
@@ -73,18 +75,4 @@ public class GestionarClientes {
         }
        
     }
-    public void insertar(){
-          try {
-            Statement stmt = c.createStatement();
-            stmt = c.createStatement();
-            String sql = "INSERT INTO public.cliente"
-                    + "(cli_cedula, cli_nombre, cli_apellido, cli_edad)"
-                    + "VALUES ('0104557612', 'Alfredo', 'Llanes', 100);";//insertar datos codigo 
-            stmt.executeUpdate(sql);
-            c.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }
