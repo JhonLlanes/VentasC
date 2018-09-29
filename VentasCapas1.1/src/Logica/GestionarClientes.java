@@ -51,7 +51,7 @@ public class GestionarClientes {
         }
     }
     
-    public void eliminar(){
+    public void eliminarClientes(){
         try {
             Statement stmt = c.createStatement();
             stmt = c.createStatement();
@@ -63,7 +63,7 @@ public class GestionarClientes {
             e.printStackTrace();
         }
     }
-    public void update(){
+    public void updateClientes(){
         try {          
             Statement stmt = c.createStatement();
             stmt = c.createStatement();
@@ -74,5 +74,20 @@ public class GestionarClientes {
             e.printStackTrace();
         }
        
+    }
+    
+    public void insertarClientes(){
+          try {
+            Statement stmt = c.createStatement();
+            stmt = c.createStatement();
+//            String sql = "INSERT INTO public.cliente"
+//                    + "(cli_cedula, cli_nombre, cli_apellido, cli_edad)"
+//                    + "VALUES ('"+getCli_cedula()+"','"+getCli_nombre()+ "','"+getCli_apellido()+"', "+getCli_edad()+");";//insertar datos codigo 
+//              System.out.println(sql);
+//            stmt.executeUpdate(sql);
+            c.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

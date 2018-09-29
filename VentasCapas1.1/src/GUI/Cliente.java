@@ -172,7 +172,7 @@ public class Cliente extends javax.swing.JInternalFrame {
         c.setCli_nombre(jTextNombre.getText());
         c.setCli_apellido(jTextApellido.getText());
         c.setCli_edad(s);
-        c.insertar();
+        //c.insertar();
     
     }//GEN-LAST:event_jButton1ActionPerformed
 

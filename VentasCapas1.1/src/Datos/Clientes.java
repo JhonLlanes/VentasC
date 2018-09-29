@@ -4,18 +4,12 @@
  * and open the template in the editor.
  */
 package Datos;
-
-import java.sql.Connection;
-import java.sql.Statement;
-
 /**
  *
  * @author jhonllanes
  */
 public class Clientes {
-    
-    Connection c = Conexion.Conexion();
-    
+       
     private int cli_id;
     private String cli_cedula;
     private String cli_nombre;
@@ -62,20 +56,6 @@ public class Clientes {
         this.cli_edad = cli_edad;
     }
     
-    public void insertar(){
-          try {
-            Statement stmt = c.createStatement();
-            stmt = c.createStatement();
-            String sql = "INSERT INTO public.cliente"
-                    + "(cli_cedula, cli_nombre, cli_apellido, cli_edad)"
-                    + "VALUES ('"+getCli_cedula()+"','"+getCli_nombre()+ "','"+getCli_apellido()+"', "+getCli_edad()+");";//insertar datos codigo 
-              System.out.println(sql);
-            stmt.executeUpdate(sql);
-            c.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
+    // aqui crear los metodos para validar todos estos campos 
     
 }
