@@ -5,10 +5,16 @@
  */
 package Logica;
 
+import Datos.Ventas;
+
 /**
  *
  * @author jhonllanes
  */
 public class GestionarVentas {
+
+    public boolean Insertar(Ventas venta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
