@@ -90,4 +90,12 @@ public class GestionarClientes {
             e.printStackTrace();
         }
     }
+
+    public boolean insertarClientes(Clientes cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Clientes mostrarUsuarios(String cedula) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
