@@ -15,6 +15,16 @@ public class Ventas {
     private Date ven_fecha;
     private int productos_pro_id;
     private int cliente_cli_id;
+    private double ven_total;
+
+    public double getVen_total() {
+        return ven_total;
+    }
+
+    public void setVen_total(double ven_total) {
+        this.ven_total = ven_total;
+    }
+    
 
     public int getVen_id() {
         return ven_id;
