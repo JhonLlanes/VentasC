@@ -77,4 +77,39 @@ public class GestionarProductoON {
 			return producto;
 		
 	}
+           public boolean ActualizarCantidad(int id) {
+		GestionarProductos gestionarproducto=new GestionarProductos();
+		if (validarcodigo(id)) {
+			if (gestionarproducto.UpdateCantidad(id))return true;
+			else return false;		
+		}else return false;
+	}
+	
+	
+	
+	public boolean EliminarLibro(int id) {
+		GestionarProductos gestionarproducto=new GestionarProductos();
+		if (validarcodigo(id)) {
+			if(gestionarproducto.delete(id))
+			return true;
+			else return false;
+		}else
+			return false;
+		
+	}
+	
+	public boolean ActualizarProducto(int cantidad, int id, String nombre, double precio) {
+		GestionarProductos gestionarproducto=new GestionarProductos();
+		if (validarcodigo(id)) {
+		if (validardatos(cantidad,id,nombre,precio)) {
+		Productos producto=new Productos();
+			producto.setPro_cantidad(cantidad);
+                        producto.setPro_id(id);
+                        producto.setPro_nombre(nombre);
+                        producto.setPro_precio(precio);
+			if (gestionarproducto.UpdateProducto(id))	return true;
+			else return false;		
+		}else return false;
+		}else return false;
+	}
 }
