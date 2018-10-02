@@ -1,5 +1,5 @@
 
-package entidadesdenegocio;
+package ODA;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
