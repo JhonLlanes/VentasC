@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author jhonllanes
  */
 public class GestionarClientes {
-   //FALTA CONEXION A LA BASE
+   //FALTA CONEXION A LA BASEJJ
     Connection c = Conexion.Conexion();
     entidadesdenegocio.Clientes cl = new entidadesdenegocio.Clientes();
 
