@@ -1,5 +1,5 @@
 
-package Datos;
+package entidadesdenegocio;
 
 import java.sql.*;
 import javax.swing.JOptionPane;

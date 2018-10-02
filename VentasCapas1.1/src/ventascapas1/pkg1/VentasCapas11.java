@@ -5,7 +5,7 @@
  */
 package ventascapas1.pkg1;
 
-import Logica.GestionarClientes;
+import ODA.GestionarClientes;
 
 /**
  *

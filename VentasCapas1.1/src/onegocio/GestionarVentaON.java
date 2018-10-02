@@ -5,8 +5,8 @@
  */
 package onegocio;
 
-import Datos.Ventas;
-import Logica.GestionarVentas;
+import entidadesdenegocio.Ventas;
+import ODA.GestionarVentas;
 import javax.swing.JOptionPane;
 
 /**

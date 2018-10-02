@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Datos;
+package entidadesdenegocio;
 import java.util.Date;
 /**
  *
@@ -46,6 +46,10 @@ public class Ventas {
 
     public void setCliente_cli_id(int cliente_cli_id) {
         this.cliente_cli_id = cliente_cli_id;
+    }
+
+    public void setVen_fecha(String fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 }
