@@ -5,25 +5,76 @@
  */
 package ON;
 
+import ODA.GestionarProductos;
 import entidadesdenegocio.Productos;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author KLEBER PUCHA
  */
 public class GestionarProductoON {
-    public boolean GuardarProducto(String titulo, String autor, String anio, String edicion, String Stock, String Costo) {
-		GestionarProductos gestionarlibro=new GestionarProductos();
-		if (validardatos(titulo, autor, anio, edicion, Stock, Costo)) {
+    public boolean GuardarProducto(int cantidad, int id, String nombre, double precio) {
+		GestionarProductos gestionarproducto=new GestionarProductos();
+		if (validardatos(cantidad,id,nombre,precio)) {
 			Productos producto=new Productos();
-			libro.setTitulo(titulo);
-			libro.setAutor(autor);
-			libro.setAnio(anio);
-			libro.setEdicion(edicion);
-			libro.setStock(Integer.parseInt(Stock));
-			libro.setCosto(Double.parseDouble(Costo));
-			if (gestionarlibro.Insertar(libro))	return true;
+			producto.setPro_cantidad(cantidad);
+                        producto.setPro_id(id);
+                        producto.setPro_nombre(nombre);
+                        producto.setPro_precio(precio);
+			if (gestionarproducto.Insertar(producto))	return true;
 			else return false;		
 		}else return false;
+	}
+            private boolean validardatos (int cantidad, int id, String nombre, double precio) {
+		if (nombre==null || nombre.equals("")) return false;
+                if (isNumeric(nombre)) return false;
+                if (isString(precio)) return false;
+                if (validarcodigo(id)) return false;
+                try {
+		if (id<0) return false;
+		if (cantidad<0) return false;
+		}catch(java.lang.NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, "Algunos datos son incorrectos", "No se puede Guardar", JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
+		return true;
+	}
+             public static boolean isNumeric( String s ){
+                try{
+                double y = Double.parseDouble( s );
+                    return true;
+                    }
+                    catch( NumberFormatException err ){
+                    return false;
+            }
+            }
+                   public static boolean isString( Double s ){
+                try{
+                String y = String.valueOf( s );
+                    return true;
+                    }
+                    catch( NumberFormatException err ){
+                    return false;
+            }
+            }
+               	public boolean validarcodigo(int id) {
+		try {
+			 String y = String.valueOf( id );
+                        return true;		
+			}catch(java.lang.NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "El codigo debe ser numerico", "No se puede Buscar", JOptionPane.WARNING_MESSAGE);
+				return false;
+			}
+	}
+           public Productos BuscarProducto(int id) {
+		Productos producto=new Productos();
+		GestionarProductos gestionarproducto=new GestionarProductos();
+		if (validarcodigo(id)) {
+			producto=gestionarproducto.Select(id);
+			return producto;
+		}else
+			return producto;
+		
 	}
 }

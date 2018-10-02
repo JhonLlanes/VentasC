@@ -5,10 +5,20 @@
  */
 package ODA;
 
+import entidadesdenegocio.Productos;
+
 /**
  *
  * @author jhonllanes
  */
 public class GestionarProductos {
+
+    public boolean Insertar(Productos producto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Productos Select(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
