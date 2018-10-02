@@ -6,6 +6,7 @@
 package ODA;
 
 import entidadesdenegocio.Clientes;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author jhonllanes
  */
 public class GestionarClientes {
-
+   //FALTA CONEXION A LA BASE
     Connection c = Conexion.Conexion();
     entidadesdenegocio.Clientes cl = new entidadesdenegocio.Clientes();
 
@@ -76,6 +77,7 @@ public class GestionarClientes {
     }
     
     public void insertarClientes(){
+   
           try {
             Statement stmt = c.createStatement();
             stmt = c.createStatement();
@@ -91,7 +93,9 @@ public class GestionarClientes {
     }
 
     public boolean insertarClientes(Clientes cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if (!cedula(cliente.getCli_cedula()))
+				return false;
+        return false;
     }
 
     public Clientes mostrarUsuarios(String cedula) {
@@ -105,4 +109,36 @@ public class GestionarClientes {
     public boolean updateClientes(Clientes cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public boolean cedula(String cedula) {
+	        try {
+                    //AQUI TAMBIENNFALTA LA CONEXION DE LA BASE
+	             conexion conexion = new conexion();
+	    	     conexion.conectar();
+	    	      Connection conn = conexion.conn;	  
+	            // Llamada al procedimiento almacenado
+	            CallableStatement cst = (CallableStatement) conn.prepareCall("{call validarcedula (?,?)}");
+	                // Parametro 1 del procedimiento almacenado
+	                cst.setString(1, cedula);
+	                cst.registerOutParameter(2, java.sql.Types.INTEGER);
+	                // Ejecuta el procedimiento almacenado
+	                cst.execute();
+	                
+	                // Se obtienen la salida del procedimineto almacenado
+	              int valor = cst.getInt(2);
+	              conn.close();
+	      	      conexion.desconectar();
+	      	      
+	      	      if (valor==1)
+	      	      return true;
+	      	      else 
+	      	    	return false;
+	                
+	        } catch (Exception e)
+		    {
+	  	      System.err.println("Got an exception!");
+	  	      System.err.println(e.getMessage());
+	  	      JOptionPane.showMessageDialog(null, e.getMessage(), "No se puede Guardar", JOptionPane.WARNING_MESSAGE);
+	  	      return false;
+	  	    }	
+	}
 }

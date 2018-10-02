@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author KLEBER PUCHA
+ * @author KLEBER PUCHA - JOHN LLANES
  */
 public class GestionarClienteON {
     	public boolean GuardarCliente(String nombre, String apellido, String cedula, int edad, int id) {
@@ -34,10 +34,10 @@ public class GestionarClienteON {
 		try {
 		if (edad<1 || edad>100) return false;
 		if (id<1) return false;
-                if (validarcedula(cedula)==false){ 
-                    JOptionPane.showMessageDialog(null, "Cedula Incorrecta", "No se puede Guardar", JOptionPane.WARNING_MESSAGE);
-                    return false;
-                }
+                //if (validarcedula(cedula)==false){ 
+                  //  JOptionPane.showMessageDialog(null, "Cedula Incorrecta", "No se puede Guardar", JOptionPane.WARNING_MESSAGE);
+                    //return false;
+                //}
 		}catch(java.lang.NumberFormatException e) {
 			JOptionPane.showMessageDialog(null, "Algunos datos son incorrectos", "No se puede Guardar", JOptionPane.WARNING_MESSAGE);
 			return false;

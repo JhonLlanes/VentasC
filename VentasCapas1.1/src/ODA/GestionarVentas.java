@@ -6,6 +6,8 @@
 package ODA;
 
 import entidadesdenegocio.Ventas;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +16,8 @@ import entidadesdenegocio.Ventas;
 public class GestionarVentas {
 
     public boolean Insertar(Ventas venta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return false;
     }
-    
+    	
 }
